@@ -18,7 +18,8 @@ enum APIError: Error {
 
 class APIImp: API {
   static let shared = APIImp()
-  
+  private let APIKEY = "" //Add your API key here from https://polygon.io/
+
   private init() {}
   
   func fetchStockData(for tiker: String, with duration: String, completion: @escaping (Result<Any,Error>) -> Void) {
@@ -91,7 +92,7 @@ class APIImp: API {
     }
     let toDateString = getDateString(for: currentDate)
     let fromDateString = getDateString(for: fromDate ?? currentDate)
-    let str = "https://api.polygon.io/v2/aggs/ticker/\(tiker.uppercased())/range/\(multiplier)/\(timespan)/\(fromDateString)/\(toDateString)?adjusted=true&sort=asc&limit=200&apiKey=RY6c2T16EAZ7h2K3APgBoWKVUH4Oxyxk"
+    let str = "https://api.polygon.io/v2/aggs/ticker/\(tiker.uppercased())/range/\(multiplier)/\(timespan)/\(fromDateString)/\(toDateString)?adjusted=true&sort=asc&limit=200&apiKey=\(APIKEY)"
     return URL(string: str)
   }
 }
