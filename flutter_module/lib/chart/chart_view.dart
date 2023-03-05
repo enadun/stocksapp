@@ -31,9 +31,9 @@ class ChartView extends StatelessWidget {
               SfCartesianChart(
                 series: <ChartSeries>[
                   LineSeries<Result, int>(
-                    dataSource: chartData!.results,
-                    xValueMapper: (Result result, x) => x,
-                    yValueMapper: (Result result, _) => result.h,
+                    dataSource: chartData.results,
+                    xValueMapper: (_, x) => x,
+                    yValueMapper: (result, _) => result.h,
                   )
                 ],
                 primaryXAxis: NumericAxis(isVisible: false),

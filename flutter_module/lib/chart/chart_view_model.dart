@@ -12,13 +12,6 @@ class ChartViewModel {
   ChartViewModel(this.appData);
 
   get isLoading => appData.isLoading;
-  set json(String json) {
-    // _json = json;
-  }
-
-  List<dynamic>? parceJson(String json) {
-    return null;
-  }
 
   Future<Void?> getGraphData(String duration) async {
     appData.setIsLoading(true);
@@ -30,7 +23,7 @@ class ChartViewModel {
       appData.setChartData(chartData);
     } catch (e) {
       appData.setChartData(null);
-      print('Failed $e');
+      // print('Failed $e');
     }
 
     appData.setIsLoading(false);

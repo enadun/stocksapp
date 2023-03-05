@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_module/main.dart';
 import 'package:flutter_module/portfolio/portfolio_view.dart';
+import 'package:flutter_module/portfolio/portfolio_view_model.dart';
+import 'package:flutter_module/state/app_data_state.dart';
+import 'package:provider/provider.dart';
 
 class PortfolioScreen extends StatefulWidget {
   const PortfolioScreen({super.key});
@@ -13,13 +16,14 @@ class PortfolioScreen extends StatefulWidget {
 }
 
 class _PortfolioScreenState extends State<PortfolioScreen> {
-  bool _isLoading = true;
-  String? _json;
+  late ProtfolioViewModel viewModel;
 
   @override
   void initState() {
     super.initState();
-    _getPortfolioData();
+    final appData = Provider.of<AppData>(context, listen: false);
+    viewModel = ProtfolioViewModel(appData);
+    viewModel.getPortfolioData();
   }
 
   @override
@@ -32,30 +36,13 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
           onPressed: () => SystemNavigator.pop(),
         ),
       ),
-      body: _isLoading
+      body: Provider.of<AppData>(context).isLoading
           ? const Center(
               child: Text('Loading...'),
             )
           : PortfolioView(
-              json: _json,
+              viewModel: viewModel,
             ),
     );
-  }
-
-  Future<Void?> _getPortfolioData() async {
-    try {
-      final data =
-          await MyApp.platformChannel.invokeMethod('get_portfolio') as String;
-      _json = data;
-      print(data);
-    } catch (e) {
-      _json = null;
-      print('Failed $e');
-    }
-    setState(() {
-      _isLoading = false;
-    });
-
-    return null;
   }
 }
