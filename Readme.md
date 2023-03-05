@@ -3,9 +3,17 @@
 This application is a combination of native iOS and Flutter. In this application, the API calls are called on the native iOS side and display the results in Flutter.
 To communicate between Flutter and native iOS, a `FlutterMethodChannel` is used.
 
+[Demo video url can be found in here.](https://i.imgur.com/zmoBJcN.mp4)
+
 #### Native Screens
 
+![Native Screen 1](https://i.imgur.com/Xb6GgZf.png)
+
 #### Flutter Screens
+
+![Flutter Screen 1](https://i.imgur.com/B4q6N40.png)
+
+![Flutter Screen 2](https://i.imgur.com/l0DbDJG.png)
 
 ### Used Packages
 
