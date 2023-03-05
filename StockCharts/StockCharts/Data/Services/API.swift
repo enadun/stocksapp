@@ -67,8 +67,8 @@ class APIImp: API {
   }
  
   private func getStockDataURL(for tiker: String, with duration: String) -> URL? {
-    // Since the current date values are delayd in the API, always getting the yesterday as the current date
-    let currentDate = Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date()
+    // Since the current date values are delayd in the API, always getting the two days before as the current date
+    let currentDate = Calendar.current.date(byAdding: .day, value: -2, to: Date()) ?? Date()
     let fromDate: Date?
     let multiplier: String
     let timespan: String
