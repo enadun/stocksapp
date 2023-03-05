@@ -11,9 +11,7 @@ To communicate between Flutter and native iOS, a `FlutterMethodChannel` is used.
 
 #### Flutter Screens
 
-![Flutter Screen 1](https://i.imgur.com/B4q6N40.png)
-
-![Flutter Screen 2](https://i.imgur.com/l0DbDJG.png)
+![Flutter Screen 1](https://i.imgur.com/B4q6N40.png) &nbsp; &nbsp; &nbsp; ![Flutter Screen 2](https://i.imgur.com/l0DbDJG.png)
 
 ### Used Packages
 
